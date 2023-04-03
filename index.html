@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>철근본선작업등록</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<style>
+    /* body {
+            background-image: linear-gradient(0deg,
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)),
+                url("");
+            background-position: center;
+            background-size: cover;
+        } */
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        
+        
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    .order {
+        width: 300px;
+        float: left;
+        margin: 60px auto 0px auto;
+        padding-bottom: 60px;
+        background-color: chartreuse;
+        text-align: center;
+        margin: 30px auto 20px auto;
+        font-size: auto;
+    }
+    .top-part{ position: center;
+               
+    }
+    .order>table {
+        margin: 40px 0;
+        font-size: 18px;
+    
+    }
+    table {
+            border-collapse: collapse;
+            width: 100%;
+    }
+    th {
+        height: 30px;
+        background-color: blue;
+        color: white;
+        font-size: 25px;
+    }
+    td,tr{
+        text-align: center;
+        border-bottom: 1px solid blueviolet;
+        font-size: 25px;
+    }
+    tr:hover {background-color: paleturquoise;} 
+    /* 선택시 배경색변경 */
+    .list-part{ overflow-x: hidden;
+                overflow-y: scroll;}
+    .list-cars{ 
+                /* background: rebeccapurple; */
+                width: 1200px;
+    }
+</style>
+<script> function checkResult() {
+        // let fruits=['사과','배','수박','귤']
+
+        // $('#q1').empty()
+        // fruits.forEach((a)=>{
+        //     let temp_html =`<p>${a}</p>`
+        //     $('#q1').append(temp_html)
+        // })
+
+        let cars = [
+            { 'car_no': '4525', 'hold_no': '1', 'd_size':'10m','count': 10, 'consi': 'kkt','w_co':'이호','made_co':'치요다' },
+            { 'car_no': '1161', 'hold_no': '2', 'd_size':'13m','count': 14, 'consi': '우신','w_co':'JJ' ,'made_co':'조난'},
+            { 'car_no': '4552', 'hold_no': '1', 'd_size':'22m','count': 15, 'consi': '덕명','w_co':'동방','made_co':'용강' },
+            { 'car_no': '6329', 'hold_no': '3', 'd_size':'19m', 'count': 17, 'consi': '태림','w_co':'인천' ,'made_co':'사강'},
+
+        ]
+        $('#q1').empty()
+        cars.forEach((a) => {
+            let car_no = a['car_no']
+            let hold_no = a['hold_no']
+            let d_size = a['d_size']
+            let count = a['count']
+            let consi = a['consi']
+            let made_co = a['made_co']
+            let w_co = a['w_co']
+            let temp_html = `<tr>
+                                <td>${car_no}</td>
+                                <td>${hold_no}</td>
+                                <td>${d_size}</td>
+                                <td>${count}</td>
+                                <td>${consi}</td>
+                                <td>${made_co}</td>
+                                <td>${w_co}</td>
+                            </tr>`
+            $('#q1').append(temp_html)
+
+        })
+    } </script>
+
+<body>
+    <div class="order">
+        <div id="top-part">
+            <h1>철근본선작업</h1>
+        </div>
+        <div class="order-info">
+        <div class="input-group mb-3">
+            <span class="input-group-text">차량번호</span>
+            <input id="name" type="text" class="form-control" />
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">홀드</span>
+            <input id="address" type="text" class="form-control" />
+        </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="size">수량</label>
+            <select class="form-select" id="size">
+                <option selected>B/D수량</option>
+                <option value="1">1</option> 여기는 버튼 수정해야함
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+            </select>
+        </div>
+        <button onclick="save_order()" type="button" class="btn btn-warning mybtn">
+            차량확인
+        </button>
+        
+        </div>
+        <div class="button-part"> <button onclick="checkResult()">결과 확인하기!</button> </div>
+    </div>
+        
+        
+        <hr /> <br>
+        <div class="list-part">
+            <h2>차량리스트</h2>
+            <table class="list-cars">
+                <thead>
+                    <th>차 량 번 호</th>
+                    <th>홀      드</th>
+                    <th>사  이  즈</th>
+                    <th>수      량</th>
+                    <th>화  주  명</th>
+                    <th>제  강  사</th>
+                    <th>창      고</th>
+                </thead>
+                <tbody id="q1">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+</body>
+
+</html>
